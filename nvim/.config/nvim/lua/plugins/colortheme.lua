@@ -1,12 +1,17 @@
 return {
-  "catppuccin/nvim",
-  name = "catppuccin",
+  "folke/tokyonight.nvim",
+  name = "tokyonight",
   lazy = false,
   priority = 1000,
   config = function()
-    require("catppuccin").setup {
-      flavour = "frappe", -- Options: latte, frappe, macchiato, mocha
-      transparent_background = true, -- Enables transparency
+    require("tokyonight").setup {
+      style = "night",        -- Options: "storm", "night", "moon", "day"
+      transparent = true,     -- Enables transparency
+      terminal_colors = true, -- Ensures terminal colors match theme
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
       integrations = {
         treesitter = true,
         native_lsp = {
@@ -25,14 +30,20 @@ return {
     }
 
     -- Load the colorscheme
-    vim.cmd.colorscheme "catppuccin"
+    vim.cmd.colorscheme "tokyonight"
 
     -- Toggle background transparency
     local bg_transparent = true
     local toggle_transparency = function()
       bg_transparent = not bg_transparent
-      require("catppuccin").setup { transparent_background = bg_transparent }
-      vim.cmd.colorscheme "catppuccin"
+      require("tokyonight").setup {
+        transparent = bg_transparent,
+        styles = {
+          sidebars = bg_transparent and "transparent" or "dark",
+          floats = bg_transparent and "transparent" or "dark",
+        },
+      }
+      vim.cmd.colorscheme "tokyonight"
     end
 
     vim.keymap.set("n", "<leader>bg", toggle_transparency, { noremap = true, silent = true })

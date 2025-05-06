@@ -4,10 +4,10 @@ return {
     -- autoclose tags
     "windwp/nvim-ts-autotag",
   },
-  {
-    -- detect tabstop and shiftwidth automatically
-    "tpope/vim-sleuth",
-  },
+  -- {
+  --   -- detect tabstop and shiftwidth automatically
+  --   "tpope/vim-sleuth",
+  -- },
   {
     -- Powerful Git integration for Vim
     "tpope/vim-fugitive",
@@ -19,6 +19,7 @@ return {
   {
     -- Hints keybinds
     "folke/which-key.nvim",
+    event = "VeryLazy",
     opts = {
       -- win = {
       --   border = {
@@ -32,6 +33,14 @@ return {
       --     { '│', 'FloatBorder' },
       --   },
       -- },
+    },
+    keys = {
+      {
+        "<leader>r",
+        [[:%s/\<<C-r><C-w>\>//gc<Left><Left><Left>]],
+        mode = "n",
+        desc = "Replace word (all occurrences)",
+      },
     },
   },
   {

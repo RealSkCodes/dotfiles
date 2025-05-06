@@ -27,7 +27,7 @@ return {
       end,
       keys = {
         { "<leader>w", ":Neotree toggle float<CR>", silent = true, desc = "Float File Explorer" },
-        { "<leader>e", ":Neotree toggle position=left<CR>", silent = true, desc = "Left File Explorer" },
+        { "<leader>e", ":Neotree toggle position=right<CR>", silent = true, desc = "Left File Explorer" },
         { "<leader>ngs", ":Neotree float git_status<CR>", silent = true, desc = "Neotree Open Git Status Window" },
       },
     },
@@ -229,7 +229,7 @@ return {
           leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
         },
         group_empty_dirs = false, -- when true, empty folders will be grouped together
-        hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
+        hijack_netrw_behavior = "open_current", -- netrw disabled, opening a directory opens neo-tree
         -- in whatever position is specified in window.position
         -- "open_current",  -- netrw disabled, opening a directory opens within the
         -- window like netrw would, regardless of window.position

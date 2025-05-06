@@ -1,14 +1,8 @@
-font_family      DankMono Nerd Font
-bold_font        auto
-italic_font      auto
-bold_italic_font auto
-
-font_size 12.0
+font_size 11
 window_padding_width 4
 window_padding_height 0
 window_margin_width 0
 window_margin_height 0
-include current-theme.conf
 background_opacity 1
 hide_window_decorations yes
 confirm_os_window_close 0
@@ -28,7 +22,15 @@ sync_to_monitor no
 
 shell fish
 
-
 # BEGIN_KITTY_THEME
-# Black Metal
+# Vibrant Ink
+include current-theme.conf
 # END_KITTY_THEME
+
+
+# BEGIN_KITTY_FONTS
+font_family      family=MonoLisa style=Thin variable_name=
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+# END_KITTY_FONTS
