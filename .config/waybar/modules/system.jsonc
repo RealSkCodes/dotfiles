@@ -1,0 +1,43 @@
+{
+  "disk": {
+    "tooltip": false,
+    "interval": 3600,
+    "path": "/",
+    "format-alt": "󱙋",
+    "format": "󱙋 <span size='11pt'>{used}</span>",
+    "states": {
+      "warning": 80,
+      "critical": 90,
+    },
+  },
+  "memory": {
+    "tooltip": false,
+    "interval": 15,
+    "format-alt": "",
+    "format": "  <span size='11pt'>{used}</span>",
+    "states": {
+      "warning": 75,
+      "critical": 85,
+    },
+  },
+  "cpu": {
+    "tooltip": false,
+    "interval": 8,
+    "format-alt": "",
+    "format": "  <span size='11pt'>{usage}%</span>",
+    "states": {
+      "warning": 75,
+      "critical": 90,
+    },
+  },
+  "temperature": {
+    "format-icons": [" ", " ", " "],
+    "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
+    "tooltip": false,
+    "interval": 10,
+    "critical-threshold": 80,
+    "format-alt": "{icon}",
+    "format": "{icon} <span size='11pt'>{temperatureC}°C</span>",
+    "format-critical": "<span size='12pt'>󱗗 </span><span size='11pt'>{temperatureC}°C</span>",
+  },
+}

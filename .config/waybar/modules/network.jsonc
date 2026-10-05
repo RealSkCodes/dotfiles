@@ -1,0 +1,14 @@
+{
+  "network": {
+    "interface": "wlp2s0",
+    "interval": 2, // Required to poll transfer rates regularly
+    "format": "{signalStrengthApp}",
+    "format-wifi": "󰇚 {bandwidthDownBytes}",
+    "tooltip-format-ethernet": "Ethernet ({ifname})\n {bandwidthDownBytes}\n {bandwidthUpBytes}",
+    "format-disconnected": "",
+    "tooltip-format": "{ifname}",
+    "tooltip-format-wifi": "{essid} ({signalStrength}% )\n {bandwidthDownBits} |  {bandwidthUpBits}",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+  },
+}

@@ -1,0 +1,22 @@
+{
+  "layer": "top",
+  "spacing": 0,
+  "include": [
+    "./modules/groups.jsonc",
+    "./modules/distro.jsonc",
+    "./modules/system.jsonc",
+    "./modules/power-profiles-daemon.jsonc",
+    "./modules/workspace.jsonc",
+    "./modules/idle-ihibitor.jsonc",
+    "./modules/audio.jsonc",
+    "./modules/connections.jsonc",
+    "./modules/battery.jsonc",
+    "./modules/clock.jsonc",
+    "./modules/tray.jsonc",
+    "./modules/notifications.jsonc",
+    "./modules/network.jsonc",
+  ],
+  "modules-left": [],
+  "modules-center": ["group/aio"],
+  "modules-right": ["custom/notifications", "group/tray-group"],
+}

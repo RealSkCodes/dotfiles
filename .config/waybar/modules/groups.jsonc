@@ -1,0 +1,65 @@
+{
+  "group/aio": {
+    "orientation": "horizontal",
+    "modules": [
+      "group/system",
+      "hyprland/workspaces",
+      "network",
+      "battery",
+      "clock",
+    ],
+  },
+  "group/distro-group": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 650,
+      "transition-left-to-right": true,
+    },
+    "modules": [
+      "custom/distro",
+      "custom/terminal",
+      "custom/code",
+      "custom/obsidian",
+      "custom/office",
+      "custom/files",
+      "custom/spotify",
+      "custom/browser",
+    ],
+  },
+  "group/system": {
+    "orientation": "horizontal",
+    "modules": ["memory", "cpu", "temperature"],
+  },
+  "group/audio": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 650,
+      "transition-left-to-right": false,
+    },
+    "modules": ["pulseaudio", "pulseaudio/slider", "pulseaudio#microphone"],
+  },
+  "group/connections": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false,
+    },
+    "modules": ["bluetooth"],
+  },
+  "group/tray-group": {
+    "orientation": "horizontal",
+
+    "drawer": {
+      "click-to-reveal": true,
+    },
+
+    "modules": [
+      "custom/tray-arrow",
+      "tray",
+      "idle_inhibitor",
+      "power-profiles-daemon",
+      "group/audio",
+      "group/connections",
+    ],
+  },
+}

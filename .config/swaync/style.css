@@ -1,0 +1,317 @@
+/* =========================================================
+   SwayNC — Solid Compact Modern Dark Theme (Scroll-Fixed)
+   ========================================================= */
+
+/* ---------- Color System (100% Opaque) ---------- */
+@define-color surface_canvas   #12141a;
+@define-color surface_card     #1a1d24;
+@define-color surface_pill     #232731;
+@define-color surface_hover    #2c343c;
+@define-color surface_active   #3c489e;
+
+@define-color text_high        #f8fafc;
+@define-color text_medium      #94a3b8;
+@define-color text_dim         #64748b;
+@define-color border_solid     #282c37;
+@define-color alert_red        #f7768e;
+@define-color alert_red_bg     #2d1b24;
+
+/* ---------- Global Reset & Scaffolding ---------- */
+* {
+  font-family: "Inter", "Noto Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  outline: none;
+}
+
+list,
+listview,
+row,
+listview row,
+listview row:selected,
+listview row:hover,
+listview row:focus,
+listview row:active {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  outline: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ---------- Zero Out & Collapse All Scroll Artifacts ---------- */
+scrolledwindow,
+scrolledwindow > viewport,
+undershoot,
+undershoot.top,
+undershoot.bottom,
+undershoot.left,
+undershoot.right,
+overshoot,
+overshoot.top,
+overshoot.bottom,
+overshoot.left,
+overshoot.right {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+}
+
+scrollbar,
+scrollbar slider,
+scrollbar trough,
+scrollbar.vertical,
+scrollbar.horizontal {
+  min-width: 0px;
+  max-width: 0px;
+  min-height: 0px;
+  max-height: 0px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  opacity: 0;
+}
+
+/* ---------- Main Control Center Shell ---------- */
+.control-center {
+  background: @surface_canvas;
+  color: @text_high;
+  border-radius: 20px;
+
+  /* Kill the physical border: border adds extra pixels to the box model */
+  border: none;
+
+  /* Recreate the exact 1px border using inset shadow (0 added layout geometry) */
+  box-shadow:
+    0 16px 36px #000000,
+    inset 0 0 0 1px @border_solid;
+
+  /* No padding on the root element to prevent viewport expansion */
+  padding: 0;
+  margin: 0;
+}
+
+/* Inner containers keep zero margins/padding */
+.control-center > scrolledwindow,
+.control-center > scrolledwindow > viewport,
+.control-center scrolledwindow {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.control-center-list {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+/* Substitute the outer padding by applying safe margins to the direct widgets */
+.control-center .widget-title,
+.control-center .widget-notifications,
+.control-center .widget-buttons-grid,
+.control-center .widget-volume,
+.control-center .widget-backlight,
+.control-center .control-center-list {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.control-center .widget-title:first-child {
+  margin-top: 10px;
+}
+
+.control-center .widget-box:last-child,
+.control-center-list:last-child,
+.control-center > *:last-child {
+  margin-bottom: 10px;
+}
+
+.control-center-list-placeholder {
+  opacity: 0.5;
+  margin: 10px 0;
+}
+
+/* ---------- Header & Clear Button ---------- */
+.widget-title {
+  padding: 4px 4px 6px 4px;
+}
+
+.widget-title > label {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: @text_high;
+}
+
+.widget-title > button {
+  background: @surface_card;
+  color: @text_medium;
+  border: 1px solid @border_solid;
+  border-radius: 9999px;
+  padding: 3px 10px;
+  font-size: 11px;
+  transition: all 150ms ease;
+}
+
+.widget-title > button:hover {
+  background: @surface_pill;
+  color: @text_high;
+}
+
+/* ---------- Notification Cards ---------- */
+.notification-row {
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
+.notification {
+  background: @surface_card;
+  border: 1px solid @border_solid;
+  border-radius: 14px;
+  margin: 3px 0;
+  padding: 8px 10px;
+  transition:
+    background 150ms ease,
+    border-color 150ms ease;
+}
+
+.notification:hover {
+  background: @surface_pill;
+  border-color: #3b4252;
+}
+
+.notification.critical {
+  background: @alert_red_bg;
+  border-color: @alert_red;
+}
+
+.notification-content {
+  padding: 0;
+}
+
+.summary {
+  color: @text_high;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.body {
+  color: @text_medium;
+  font-size: 12px;
+  margin-top: 2px;
+  line-height: 1.3;
+}
+
+.notification-image {
+  border-radius: 8px;
+  margin-right: 8px;
+}
+
+.close-button {
+  background: @surface_card;
+  color: @text_dim;
+  border-radius: 9999px;
+  min-width: 18px;
+  min-height: 18px;
+  padding: 2px;
+  transition: all 150ms ease;
+}
+
+.close-button:hover {
+  background: @alert_red;
+  color: #ffffff;
+}
+
+.notification-action {
+  background: @surface_pill;
+  color: @text_high;
+  border-radius: 8px;
+  margin-top: 6px;
+  font-size: 11.5px;
+}
+
+.notification-action:hover {
+  background: @surface_active;
+}
+
+/* ---------- Quick Toggle Grid ---------- */
+.widget-buttons-grid {
+  background: transparent;
+  padding: 0 0 4px 0;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  background: @surface_card;
+  color: @text_medium;
+  border: 1px solid @border_solid;
+  border-radius: 12px;
+  min-width: 24px;
+  min-height: 28px;
+  margin: 2px;
+  transition: all 150ms ease;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: @surface_hover;
+  color: @text_high;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:checked {
+  background: @surface_active;
+  color: #0b0f19;
+  border-color: @surface_active;
+}
+
+/* ---------- Sliders ---------- */
+.widget-volume,
+.widget-backlight {
+  background: @surface_card;
+  border: 1px solid @border_solid;
+  border-radius: 14px;
+  padding: 4px 10px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+scale trough {
+  background: #232731;
+  border-radius: 9999px;
+  min-height: 4px;
+  margin: 0 4px;
+}
+
+scale highlight {
+  background: @surface_active;
+  border-radius: 9999px;
+  min-height: 4px;
+}
+
+scale slider {
+  background: #ffffff;
+  border-radius: 50%;
+  min-width: 10px;
+  min-height: 10px;
+  margin: -3px 0;
+}
+
+/* Hard-kill all GTK internal transitions */
+* {
+  transition: none !important;
+  -gtk-secondary-caret-color: unset;
+}
+
+button,
+button:hover,
+button:active,
+button:checked {
+  transition: none !important;
+  animation: none !important;
+}

@@ -1,0 +1,13 @@
+{
+  "workbench.colorTheme": "Solarized Dark",
+  "workbench.secondarySideBar.defaultVisibility": "visible",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.empty.hint": "hidden",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[lua]": {
+    "editor.defaultFormatter": "Koihik.vscode-lua-format",
+  },
+  "editor.fontFamily": "'SpaceMono Nerd Font Mono'",
+  "editor.minimap.enabled": false,
+}

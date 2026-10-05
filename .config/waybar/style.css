@@ -1,0 +1,408 @@
+/* ==========================================================================
+   1. COLOR DEFINITIONS (Matugen Palette with Island Contrast)
+   ========================================================================== */
+@define-color background #0f1416;
+@define-color error #ffb4ab;
+@define-color error_container #93000a;
+@define-color inverse_on_surface #2c3134;
+@define-color inverse_primary #08677f;
+@define-color inverse_surface #dee3e6;
+@define-color on_background #dee3e6;
+@define-color on_error #690005;
+@define-color on_error_container #ffdad6;
+@define-color on_primary #003544;
+@define-color on_primary_container #b8eaff;
+@define-color on_primary_fixed #001f28;
+@define-color on_primary_fixed_variant #004d61;
+@define-color on_secondary #1e333b;
+@define-color on_secondary_container #cfe6f1;
+@define-color on_secondary_fixed #071e26;
+@define-color on_secondary_fixed_variant #344a52;
+@define-color on_surface #dee3e6;
+@define-color on_surface_variant #bfc8cc;
+@define-color on_tertiary #2c2e4d;
+@define-color on_tertiary_container #e1e0ff;
+@define-color on_tertiary_fixed #171837;
+@define-color on_tertiary_fixed_variant #434465;
+@define-color outline #8a9296;
+@define-color outline_variant #40484c;
+@define-color primary #88d1ec;
+@define-color primary_container #004d61;
+@define-color primary_fixed #b8eaff;
+@define-color primary_fixed_dim #88d1ec;
+@define-color scrim #000000;
+@define-color secondary #b3cad4;
+@define-color secondary_container #344a52;
+@define-color secondary_fixed #cfe6f1;
+@define-color secondary_fixed_dim #b3cad4;
+@define-color shadow #000000;
+@define-color source_color #25738b;
+@define-color surface #0f1416;
+@define-color surface_bright #353a3d;
+@define-color surface_container #121719;
+@define-color surface_container_high #252b2d;
+@define-color surface_container_highest #303638;
+@define-color surface_container_low #171c1f;
+@define-color surface_container_lowest #0a0f11;
+@define-color surface_dim #0f1416;
+@define-color surface_tint #88d1ec;
+@define-color surface_variant #40484c;
+@define-color tertiary #c3c3eb;
+@define-color tertiary_container #434465;
+@define-color tertiary_fixed #e1e0ff;
+@define-color tertiary_fixed_dim #c3c3eb;
+@define-color temp-normal #1e95df;
+@define-color temp-warm #c97c39;
+@define-color temp-critical #f40d0d;
+
+/* Dynamic Island Specific Deep Contrast */
+@define-color island_bg #0a0f11;
+@define-color island_border rgba(255, 255, 255, 0.08);
+
+/* ==========================================================================
+   2. GLOBAL BASE & WINDOW RESET
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  min-height: 0px;
+  border: none;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 14px;
+  font-weight: 300;
+}
+
+window#waybar {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+#aio {
+  background-color: @island_bg;
+  border: 1px solid @island_border;
+  border-radius: 9999px;
+  padding: 2px 8px;
+  margin: 3px 4px;
+}
+
+/* ==========================================================================
+   3. WORKSPACES (Minimal Island Indicator - Glitch-Free)
+   ========================================================================== */
+#workspaces {
+  margin: 3px 4px;
+  padding: 2px 4px;
+  background-color: @island_bg;
+  border: 1px solid @island_border;
+  border-radius: 9999px;
+}
+
+#workspaces button {
+  min-width: 24px; /* Fixed minimum width prevents layout snap */
+  padding: 1px 8px; /* Keep base and active padding identical */
+  margin: 0 1px;
+  background: transparent;
+  border-radius: 9999px;
+  color: @outline;
+  /* Only transition color & background-color, NEVER layout dimensions */
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+#workspaces button.active {
+  padding: 1px 8px; /* Matches the base button padding */
+  background-color: @primary;
+  color: @on_primary;
+}
+
+#workspaces button.special {
+  color: @tertiary_fixed;
+}
+
+#workspaces button:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: @on_surface;
+}
+
+#workspaces button.active:hover {
+  background-color: @primary;
+  color: @on_primary;
+}
+
+#workspaces button.empty {
+  color: @outline_variant;
+}
+
+#workspaces button.urgent {
+  color: @error;
+}
+
+#workspaces button label:first-child {
+  margin-right: 4px;
+}
+
+#workspaces button label:last-child {
+  margin-left: 2px;
+}
+/* ==========================================================================
+   4. DISTRO GROUP & APP LAUNCHERS
+   ========================================================================== */
+#distro-group {
+  margin: 3px 4px;
+  padding: 2px 6px;
+  background-color: @island_bg;
+  border: 1px solid @island_border;
+  border-radius: 9999px;
+  color: @primary;
+}
+
+#custom-distro {
+  color: @primary;
+  padding: 1px 6px 1px 4px;
+}
+
+#custom-terminal {
+  color: #a6e3a1;
+  padding: 1px 4px;
+}
+
+#custom-code {
+  color: #89b4fa;
+  padding: 1px 4px;
+}
+
+#custom-office {
+  color: #ff6f4c;
+  padding: 1px 4px;
+}
+
+#custom-obsidian {
+  color: #cba6f7;
+  padding: 1px 4px;
+}
+
+#custom-files {
+  color: #f9e2af;
+  padding: 1px 4px;
+}
+
+#custom-spotify {
+  color: #1db954;
+  padding: 1px 4px;
+}
+
+#custom-browser {
+  color: #fab387;
+  padding: 1px 6px 1px 4px;
+}
+
+#power-profiles-daemon,
+#idle_inhibitor {
+  margin: 3px 3px;
+  padding: 2px 9px;
+  background-color: @island_bg;
+  border: 1px solid @island_border;
+  border-radius: 9999px;
+  color: @secondary_fixed_dim;
+}
+
+/* ==========================================================================
+   5. ISLAND CAPSULES & SYSTEM METRICS
+   ========================================================================== */
+#audio,
+#connections,
+#system,
+#storage {
+  margin: 3px 3px;
+  padding: 2px 7px;
+  background-color: @island_bg;
+  border: 1px solid @island_border;
+  border-radius: 9999px;
+  color: @secondary_fixed_dim;
+}
+
+#memory,
+#cpu,
+#bluetooth {
+  margin-right: 2px;
+  padding: 0 4px;
+}
+#cpu,
+#memory,
+#temprature {
+  min-width: 50px;
+  margin-left: 10px;
+}
+
+#temperature {
+  padding: 1px 6px;
+  background-color: @temp-normal;
+  border-radius: 9999px;
+  color: #ffffff;
+}
+
+#temperature.warning {
+  background-color: @temp-warm;
+}
+
+#temperature.critical {
+  background-color: @temp-critical;
+}
+
+#network {
+  padding: 0 5px;
+}
+
+#pulseaudio {
+  margin: 0 4px;
+  padding: 0 2px;
+}
+/* ==========================================================================
+   6. NETWORK, BATTERY & CLOCK (Seamless Unified Island)
+   ========================================================================== */
+
+/* 1. Left Segment: Network */
+#network {
+  min-width: 85px;
+  margin: 3px 0px 3px 3px;
+  padding: 2px 7px 2px 10px;
+  background-color: @island_bg;
+  border-top: 1px solid @island_border;
+  border-bottom: 1px solid @island_border;
+  border-left: 1px solid @island_border;
+  border-right: none;
+  border-radius: 9999px 0px 0px 9999px;
+  color: @secondary_fixed_dim;
+}
+
+/* 2. Center Segment: Battery */
+#battery {
+  margin: 3px 0px;
+  padding: 2px 7px;
+  background-color: @island_bg;
+  border-top: 1px solid @island_border;
+  border-bottom: 1px solid @island_border;
+  border-left: none;
+  border-right: none;
+  border-radius: 0px;
+  color: @secondary_fixed_dim;
+}
+
+/* 3. Right Segment: Clock */
+#clock {
+  margin: 3px 3px 3px 0px;
+  padding: 2px 10px 2px 7px;
+  background-color: @island_bg;
+  border-top: 1px solid @island_border;
+  border-bottom: 1px solid @island_border;
+  border-right: 1px solid @island_border;
+  border-left: none;
+  border-radius: 0px 9999px 9999px 0px;
+  color: @secondary_fixed_dim;
+}
+
+/* ==========================================================================
+   7. SLIDER (Mini Dynamic Pill Track)
+   ========================================================================== */
+#pulseaudio-slider {
+  margin: 3px 2px;
+  padding: 0 4px;
+  background-color: transparent;
+  border-radius: 9999px;
+}
+
+#pulseaudio-slider trough {
+  min-height: 5px;
+  min-width: 55px;
+  border-radius: 9999px;
+  background-color: @outline_variant;
+}
+
+#pulseaudio-slider highlight {
+  min-height: 5px;
+  border-radius: 9999px;
+  background-color: @primary;
+}
+
+#pulseaudio-slider slider {
+  min-height: 9px;
+  min-width: 9px;
+  margin: -2px 0;
+  border-radius: 100%;
+  background-color: #ffffff;
+}
+
+/* ==========================================================================
+   8. TRAY & NOTIFICATIONS
+   ========================================================================== */
+#tray-group {
+  margin: 3px 3px;
+  padding: 2px 4px;
+  background-color: @island_bg;
+  border: 1px solid @island_border;
+  border-radius: 9999px;
+}
+
+#custom-tray-arrow {
+  padding: 0 5px;
+  color: @primary;
+  min-width: 14px;
+}
+
+#tray {
+  padding: 0 4px;
+}
+
+#tray > .passive,
+#tray > .active,
+#tray > .needs-attention {
+  -gtk-icon-effect: none;
+}
+
+#custom-notifications {
+  padding: 0 5px;
+}
+
+#custom-notifications.notification,
+#custom-notifications.dnd-notification {
+  color: #d4ff00;
+}
+
+#custom-notifications.none,
+#custom-notifications.dnd-none {
+  color: @primary;
+}
+
+/* ==========================================================================
+   9. DYNAMIC STATES (COLORS)
+   ========================================================================== */
+#custom-tray-arrow.inhibited-none,
+#custom-tray-arrow.dnd-none,
+#battery.charging,
+#power-profiles-daemon.power-saver {
+  color: #a6e3a1;
+}
+
+#idle_inhibitor.activated,
+#cpu.warning,
+#disk.warning,
+#memory.warning,
+#battery.warning:not(.charging),
+#custom-tray-arrow.notification,
+#custom-tray-arrow.dnd-notification,
+#custom-tray-arrow.inhibited-notification {
+  color: #f9e2af;
+}
+
+#network.disabled,
+#cpu.critical,
+#disk.critical,
+#memory.critical,
+#temperature.critical,
+#battery.critical:not(.charging),
+#power-profiles-daemon.performance,
+#custom-tray-arrow.dnd-inhibited-none,
+#custom-tray-arrow.dnd-inhibited-notification {
+  color: #f38ba8;
+}
