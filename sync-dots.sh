@@ -65,7 +65,14 @@ fi
 
 # Commit and push
 git add .
-MSG="${1:-Update dotfiles: $(date '+%Y-%m-%d %H:%M')}"
+if [ -n "$1" ]; then
+    MSG="$1"
+else
+    DEFAULT_MSG="Update dotfiles: $(date '+%Y-%m-%d %H:%M')"
+    echo ""
+    read -p "Enter commit message (press Enter for '$DEFAULT_MSG'): " USER_MSG
+    MSG="${USER_MSG:-$DEFAULT_MSG}"
+fi
 git commit -m "$MSG"
 git push origin main
 
