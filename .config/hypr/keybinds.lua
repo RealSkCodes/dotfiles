@@ -41,3 +41,5 @@ hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({workspace = "e-1"}))
 
 -- Requires playerctl
 hl.bind("F7", hl.dsp.exec_cmd("playerctl play-pause"), {locked = true})
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("quickshell -c hyprquickpaper"))
+

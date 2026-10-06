@@ -5,6 +5,17 @@ require("startup") -- Startup Application
 require("variables") -- Applications and Defaults
 require("permissions") -- Permissions
 
+hl.window_rule({
+    match = {class = "io.hyprland.wallpaper.carousel"},
+    float = true,
+    fullscreen = true,
+    pin = true,
+    no_anim = true,
+    opacity = "0.92 0.92"
+})
+
+hl.layer_rule({match = {namespace = "wallpaper-carousel"}, blur = true})
+
 ---- LOOK AND FEEL ----
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
