@@ -1,15 +1,17 @@
 {
-  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "type": "kitty",
+    "source": "~/.config/fastfetch/avatar.png",
+    "width": 44,
+    "height": 20,
+  },
   "modules": [
     "title",
     "separator",
     "os",
-    "host",
     "kernel",
     "shell",
-    "de",
-    "wm",
-    "terminal",
     "cpu",
     "gpu",
     "memory",
@@ -17,6 +19,10 @@
     "disk",
     "battery",
     "poweradapter",
+    "wifi",
+    "datetime",
+    "users",
     "break",
-  ]
+    "colors",
+  ],
 }

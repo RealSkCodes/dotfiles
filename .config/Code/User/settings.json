@@ -10,4 +10,5 @@
   },
   "editor.fontFamily": "'SpaceMono Nerd Font Mono'",
   "editor.minimap.enabled": false,
+  "explorer.confirmDelete": false,
 }

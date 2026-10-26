@@ -23,7 +23,7 @@ alias pamcan=pacman
 # set -x GTK_THEME Midnight-Orange
 set -x GTK_THEME Kimi-dark
 set -x GTK_ICON_THEME Aretha-Dark-Icons
-fastfetch -l small
+fastfetch
 
 
 # function fish_prompt

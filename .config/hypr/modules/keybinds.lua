@@ -1,6 +1,6 @@
 -- /home/realsk/.config/hypr/keybinds.lua
 -- KEYBINDINGS --
-local apps = require("variables") -- Applications
+local apps = require("modules/variables") -- Applications
 
 -- mainMod key defined
 local mainMod = "SUPER"
@@ -43,3 +43,6 @@ hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({workspace = "e-1"}))
 hl.bind("F7", hl.dsp.exec_cmd("playerctl play-pause"), {locked = true})
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("quickshell -c hyprquickpaper"))
 
+hl.bind(mainMod .. " + L",
+        hl.dsp.exec_cmd("~/.config/hypr/scripts/lock-hyprland.sh"),
+        {locked = true})
