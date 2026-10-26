@@ -1,0 +1,11 @@
+[SddmGreeterTheme]
+Name=Catppuccin Minimal
+Description=Minimal Catppuccin Mocha login theme
+Author=RealSk
+Type=sddm-theme
+Version=1.0
+Website=
+Screenshot=
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations

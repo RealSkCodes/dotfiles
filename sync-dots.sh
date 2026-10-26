@@ -16,6 +16,10 @@ SYNC_DIRS=(
 
     # --- .local folders ---
     "$HOME/.local/share/fonts/JetBrainsMono:.local/share/fonts/JetBrainsMono"
+    # --- SDDM theme ---
+    "/usr/share/sddm/themes/catppuccin-minimal:system/sddm/themes/catppuccin-minimal"
+    # Inside SYNC_DIRS
+    "/etc/sddm.conf.d:system/sddm/sddm.conf.d"
 )
 
 # 2. Cherry-pick single files
